@@ -34,6 +34,7 @@ private:
 inline ThreadPool::ThreadPool(size_t threads)
     :   stop(false)
 {
+    workers.reserve(threads);
     for(size_t i = 0;i<threads;++i)
         workers.emplace_back(
             [this]
